@@ -25,6 +25,6 @@ do
   
    esac
  done
-echo 
+echo "Thanks for using my script :D" ;
 echo "Script Ended" 
 
