@@ -1,8 +1,6 @@
 #bin!/bin/bash
 echo  Made By @sasi2006166
 echo "github.com/sasi2006166"  
-echo "Thanks to me for doing this script" 
-
 echo "Before Using this script you need packages.sh" 
 
 echo "Select what LineageOS version do you want to build" 

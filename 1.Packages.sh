@@ -42,6 +42,7 @@ do
   
    esac
  done
-echo "Thanks for using my script :D" ;
+echo "Thanks for using my script :D" 
+echo "Now move to Copying.sh file"
 echo "Script Ended" 
 
