@@ -1,0 +1,20 @@
+Hello There, sasi2006166 at keyboard.
+Carefully READ this file
+OPEN terminal and type
+
+sudo nano /etc/apt/sources.list
+now go at the end of that file and add this 
+
+# Old Ubuntu 16.04 packages for AOSP
+deb http://archive.ubuntu.com/ubuntu xenial main universe
+
+save changes and exit.
+And you done, now you can run packages.sh script again :)
+
+
+REMEMBER TO TYPE "ubuntu-16.04" without brackets when asked in packages.sh file 
+
+
+Bye and thanks for using my script :D
+
+sasi2006166
