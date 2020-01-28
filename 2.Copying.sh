@@ -1,37 +1,52 @@
-#bin!/bin/bash
-echo  Made By @sasi2006166
-echo "github.com/sasi2006166"  
+#!/bin/bash
+echo  "Made By @sasi2006166"
+echo -e "github.com/sasi2006166\n"  
 echo "Before Using this script you need packages.sh" 
 
 echo "Select what LineageOS version do you want to build" 
-echo "lineage-15.1       lineage-16.0       lineage-17.0" 
+echo " 1) lineage-15.1       2) lineage-16.0       3) lineage-17.0" 
+
+
 
 while   :
 do
     read INPUT_STRING
     case $INPUT_STRING in
-         lineage-15.1) 
-            echo "Oreo Selected" ;
-            mkdir lineage-15.1 ;
-            cd lineage-15.1 ;
-            repo init -u git://github.com/LineageOS/android.git -b lineage-15.1 ;
-            repo sync $(($(nproc)+1))
+         1) 
+            echo -e "\nOreo Selected\n\nmaking dir...\n"
+            mkdir lineage-15_1
+            cd lineage-15_1/
+	    bs_dir=$(pwd)
+	    echo -e "\n\nSyncing....\n\n======\n"
+            exec repo init -u git://github.com/LineageOS/android.git -b lineage-15.1
+            exec repo sync $(($(nproc)+1))
+	    echo -e "\n======\n"
+	    break
              ;;
 
-         lineage-16.0)
-            echo "Pie Selected" ;
-            mkdir lineage-16.0 ;
-            cd lineage-16.0
-            repo init -u git://github.com/LineageOS/android.git -b lineage-16.0 ;
-            repo sync $(($(nproc)+1)) 
+         2)
+	    
+            echo -e "\nPie Selected\n\nmaking dir...\n"
+            mkdir lineage-16_0 
+            cd $(pwd)/lineage-16_0
+	    bs_dir1=$(pwd)
+	    echo -e "\n\nSyncing....\n\n======\n"
+            exec repo init -u git://github.com/LineageOS/android.git -b lineage-16.0 
+            exec repo sync $(($(nproc)+1)) 
+	    echo -e "\n======\n"
+	    break
              ;;
              
-         lineage-17.0)
-            echo "Q Selected" ;
-            mkdir lineage-17.0 ; 
-            cd lineage-17.0 ; 
-            repo init -u git://github.com/LineageOS/android.git -b lineage-17.0 ;
-            repo sync $(($(nproc)+1))
+         3)
+            echo "\nQ Selected\n\nmaking dir...\n" 
+            mkdir lineage-17_0  
+            cd $(pwd)/lineage-17_0
+	    bs_dir2=$(pwd)
+	    echo -e "\n\nSyncing....\n\n======\n"
+            exec repo init -u git://github.com/LineageOS/android.git -b lineage-17.0 
+            exec repo sync $(($(nproc)+1))
+	    echo -e "\n======\n"
+	    break
              ;;
      
          *)
@@ -41,10 +56,8 @@ do
  done
            
 
-echo "Sync Completed, Now Select One of Exynos7870 devices listed Below :)" 
-echo "los-15.1-j7xelte       los-15.1-j7velte       los-15.1-on7xelte" 
-echo "los-16.0-j7xelte       los-16.0-j7velte       los-16.0-on7xelte"
-echo "los-17.0-j7xelte       los-17.0-j7velte       los-17.0-on7xelte"
+echo -e "Sync Completed\n\n Now Select One of Exynos7870 devices listed Below :)" 
+echo "1) j7xelte       2) j7velte       3) on7xelte" 
 
 
 
@@ -52,40 +65,48 @@ while  :
 do 
    read INPUT_STRING
    case $INPUT_STRING in 
-           j7xelte)
-               echo "J7 2016 Selected" ;
-               mkdir .repo/local_manifests/
-               cd .repo/local_manifests
-               wget https://github.com/sasi2006166-exynos7870/local_manifests/j7xelte.xml
-               cd ../.. 
-               echo "Good Now Will Sync Trees"
-               repo sync -$(($(nproc)+1))
+           1)
+               echo -e "\nJ7 2016 Selected\n\nmaking dir...\n"
+               mkdir -p .repo/local_manifests/
+               cd $(pwd)/.repo/local_manifests
+	       echo -e "\ngetting manifests\n\n======\n"
+               exec wget https://github.com/sasi2006166-exynos7870/local_manifests/j7xelte.xml
+               cd $bs_dir 
+               echo -e "\nSyncing...\n\n======\n"
+               exec repo sync -$(($(nproc)+1))
+	       echo -e "\n======\n"
+	       break
                ;;
            
-           on7xelte)
-               echo "J7 Prime Selected" ;
-               mkdir .repo/local_manifests/
-               cd .repo/local_manifests
-               wget https://github.com/sasi2006166-exynos7870/local_manifests/on7xelte.xml
-               cd ../.. 
-               echo "Good Now Will Sync Trees"
-               repo sync -$(($(nproc)+1))
+           2)
+               echo -e "\nJ7 Prime Selected\n\nmaking dir...\n" ;
+               mkdir -p .repo/local_manifests/
+               cd $(pwd)/.repo/local_manifests
+	       echo -e "\ngetting manifests\n\n======\n"
+               exec wget https://github.com/sasi2006166-exynos7870/local_manifests/on7xelte.xml
+               cd $bs_dir1
+	       echo -e "Syncing....\n\n======\n"
+               exec repo sync -$(($(nproc)+1))
+	       echo -e "\n======\n"
+	       break
                ;;
 
-            j7velte)
-               echo "J7 NXT Selected" ;
-               mkdir .repo/local_manifests/
-               cd .repo/local_manifests
-               wget https://github.com/sasi2006166-exynos7870/local_manifests/j7velte.xml
-               cd ../.. 
-               echo "Good Now Will Sync Trees"
-               repo sync -$(($(nproc)+1))
+            3)
+               echo "\nJ7 NXT Selected\n\nmaking dir...\n" ;
+               mkdir -p .repo/local_manifests/
+               cd $(pwd)/.repo/local_manifests
+	       echo -e "\ngetting manifests\n\n======"
+               exec wget https://github.com/sasi2006166-exynos7870/local_manifests/j7velte.xml
+               cd $bs_dir2
+	       echo -e "Syncing....\n\n======\n"
+               exec repo sync -$(($(nproc)+1))
+	       break
                ;;
 
 
 
    esac 
  done
-echo "Everything is fine!"
+echo -e "\n\nEverything is fine!"
 echo "Now move to build.sh file"
 
