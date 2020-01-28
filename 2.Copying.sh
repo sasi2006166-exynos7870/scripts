@@ -15,11 +15,11 @@ do
          1) 
             echo -e "\nOreo Selected\n\nmaking dir...\n"
             mkdir lineage-15_1
-            cd lineage-15_1/
+            cd $(pwd)/lineage-15_1/
 	    bs_dir=$(pwd)
 	    echo -e "\n\nSyncing....\n\n======\n"
-            exec repo init -u git://github.com/LineageOS/android.git -b lineage-15.1
-            exec repo sync $(($(nproc)+1))
+            repo init -u git://github.com/LineageOS/android.git -b lineage-15.1
+            repo sync
 	    echo -e "\n======\n"
 	    break
              ;;
@@ -31,8 +31,8 @@ do
             cd $(pwd)/lineage-16_0
 	    bs_dir1=$(pwd)
 	    echo -e "\n\nSyncing....\n\n======\n"
-            exec repo init -u git://github.com/LineageOS/android.git -b lineage-16.0 
-            exec repo sync $(($(nproc)+1)) 
+            repo init -u git://github.com/LineageOS/android.git -b lineage-16.0 
+            repo sync
 	    echo -e "\n======\n"
 	    break
              ;;
@@ -41,10 +41,11 @@ do
             echo "\nQ Selected\n\nmaking dir...\n" 
             mkdir lineage-17_0  
             cd $(pwd)/lineage-17_0
+	    echo "current dir $(pwd)"
 	    bs_dir2=$(pwd)
 	    echo -e "\n\nSyncing....\n\n======\n"
-            exec repo init -u git://github.com/LineageOS/android.git -b lineage-17.0 
-            exec repo sync $(($(nproc)+1))
+            repo init -u git://github.com/LineageOS/android.git -b lineage-17.0 
+            repo sync
 	    echo -e "\n======\n"
 	    break
              ;;
@@ -70,10 +71,10 @@ do
                mkdir -p .repo/local_manifests/
                cd $(pwd)/.repo/local_manifests
 	       echo -e "\ngetting manifests\n\n======\n"
-               exec wget https://github.com/sasi2006166-exynos7870/local_manifests/j7xelte.xml
+               wget https://github.com/sasi2006166-exynos7870/local_manifests/j7xelte.xml
                cd $bs_dir 
                echo -e "\nSyncing...\n\n======\n"
-               exec repo sync -$(($(nproc)+1))
+               repo sync
 	       echo -e "\n======\n"
 	       break
                ;;
@@ -83,10 +84,10 @@ do
                mkdir -p .repo/local_manifests/
                cd $(pwd)/.repo/local_manifests
 	       echo -e "\ngetting manifests\n\n======\n"
-               exec wget https://github.com/sasi2006166-exynos7870/local_manifests/on7xelte.xml
+               wget https://github.com/sasi2006166-exynos7870/local_manifests/on7xelte.xml
                cd $bs_dir1
 	       echo -e "Syncing....\n\n======\n"
-               exec repo sync -$(($(nproc)+1))
+               repo sync 
 	       echo -e "\n======\n"
 	       break
                ;;
@@ -96,10 +97,10 @@ do
                mkdir -p .repo/local_manifests/
                cd $(pwd)/.repo/local_manifests
 	       echo -e "\ngetting manifests\n\n======"
-               exec wget https://github.com/sasi2006166-exynos7870/local_manifests/j7velte.xml
+               wget https://github.com/sasi2006166-exynos7870/local_manifests/j7velte.xml
                cd $bs_dir2
 	       echo -e "Syncing....\n\n======\n"
-               exec repo sync -$(($(nproc)+1))
+               repo sync
 	       break
                ;;
 
