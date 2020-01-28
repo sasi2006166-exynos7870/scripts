@@ -42,7 +42,9 @@ do
            
 
 echo "Sync Completed, Now Select One of Exynos7870 devices listed Below :)" 
-echo "j7xelte       j7velte       on7xelte" 
+echo "los-15.1-j7xelte       los-15.1-j7velte       los-15.1-on7xelte" 
+echo "los-16.0-j7xelte       los-16.0-j7velte       los-16.0-on7xelte"
+echo "los-17.0-j7xelte       los-17.0-j7velte       los-17.0-on7xelte"
 
 
 
