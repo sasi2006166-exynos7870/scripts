@@ -19,7 +19,7 @@ do
 	    bs_dir=$(pwd)
 	    echo -e "\n\nSyncing....\n\n======\n"
             repo init -u git://github.com/LineageOS/android.git -b lineage-15.1
-            repo sync
+            repo sync -j$(($(nproc)+1))
 	    echo -e "\n======\n"
 	    break
              ;;
@@ -32,7 +32,7 @@ do
 	    bs_dir1=$(pwd)
 	    echo -e "\n\nSyncing....\n\n======\n"
             repo init -u git://github.com/LineageOS/android.git -b lineage-16.0 
-            repo sync
+            repo sync -j$(($(nproc)+1))
 	    echo -e "\n======\n"
 	    break
              ;;
@@ -45,7 +45,7 @@ do
 	    bs_dir2=$(pwd)
 	    echo -e "\n\nSyncing....\n\n======\n"
             repo init -u git://github.com/LineageOS/android.git -b lineage-17.0 
-            repo sync
+            repo sync -j$(($(nproc)+1))
 	    echo -e "\n======\n"
 	    break
              ;;
@@ -74,7 +74,7 @@ do
                wget https://github.com/sasi2006166-exynos7870/local_manifests/j7xelte.xml
                cd $bs_dir 
                echo -e "\nSyncing...\n\n======\n"
-               repo sync
+               repo sync -j$(($(nproc)+1))
 	       echo -e "\n======\n"
 	       break
                ;;
@@ -87,7 +87,7 @@ do
                wget https://github.com/sasi2006166-exynos7870/local_manifests/on7xelte.xml
                cd $bs_dir1
 	       echo -e "Syncing....\n\n======\n"
-               repo sync 
+               repo sync -j$(($(nproc)+1))
 	       echo -e "\n======\n"
 	       break
                ;;
@@ -100,7 +100,7 @@ do
                wget https://github.com/sasi2006166-exynos7870/local_manifests/j7velte.xml
                cd $bs_dir2
 	       echo -e "Syncing....\n\n======\n"
-               repo sync
+               repo sync -j$(($(nproc)+1))
 	       break
                ;;
 
